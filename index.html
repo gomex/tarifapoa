@@ -1,172 +1,92 @@
-﻿<!DOCTYPE html>
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta property="og:image" content="http://matehackers.github.io/tarifapoa/images/share_icon.jpg" />
-    <meta id="shareTitle" property="og:title" content="Proposta de Transporte Público Porto Alegre" />
-    <meta property="og:description" content="Porto Alegre" />
-    <title>Proposta Transporte Público</title>
-    <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>
-    <link href="stylesheets/site.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="http://matehackers.github.io/tarifapoa/favicon.ico" />
-    <script src="scripts/jquery-1.10.1.js"></script>
-    <script src="scripts/jquery-ui.js"></script>
-    <script src="scripts/jquery.cookie.js"></script>
-    <script src="scripts/tarifaManager.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Tarifa-teste</title>
+  <meta name="description" content="tarifa-teste">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <center>
-				<img src="images/logo.png" id="logo">
-			</center>
-        </header>
 
-        <div class="content">
-
-            <div id="upperblock">
-                <div class="row">
-                    <div class="span6">
-                        <div class="text1">atualmente, a passagem de ônibus custa</div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="span6">
-                        <p>
-                            <span class="text-rs">R$</span>
-                            <span class="text-price">2,80</span>
-                        </p>
-                        <div class="text3 ">e se:</div>
-                    </div>
-
-                    <div class="span6">
-                        <div class="text2">
-                            vários fatores influenciam nessa tarifa.<br>
-                            fizemos alguns cálculos para comparar<br>
-                            o quanto cada item afeta no preço final.
-                            <br>
-                            faça a sua simulação
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div class="row" id="optionsList">
-                <div class="span12">
-                    <ul id="propostasOrdenadas">
-                        <li class="proposta" opcaox="1">
-                            <input type="checkbox" id="opIsentarImposto" class="opcao" />
-                            <label for="opIsentarImposto" title="clique para saber o efeito dessa ação" tarifareducao="0.16" opcao="1">
-                                Isentar impostos
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="2">
-                            <input type="checkbox" id="opCatracaAutomatica" class="opcao" />
-                            <label for="opCatracaAutomatica" title="clique para saber o efeito dessa ação" tarifareducao="0.45" opcao="2">
-                                Sistema automatizado sem cobradores
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="3">
-                            <input type="checkbox" id="opSemIsentos" class="opcao" />
-                            <label for="opSemIsentos" title="clique para saber o efeito dessa ação" tarifareducao="0.11" opcao="3">
-                                Retirar isenções para idosos
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="4">
-                            <input type="checkbox" id="opSemEstudanteIsento" class="opcao" />
-                            <label for="opSemEstudanteIsento" title="clique para saber o efeito dessa ação" tarifareducao="0.07" opcao="4">
-                                Retirar desconto de estudante
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="5">
-                            <input type="checkbox" id="opArCondicionadoEmTodaFrota" class="opcao" />
-                            <label for="opArCondicionadoEmTodaFrota" title="clique para saber o efeito dessa ação" tarifareducao="-0.18" opcao="5">
-                                Ar-condicionado em todos os carros
-								<span>aumenta a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="6">
-                            <input type="checkbox" id="opSemDiaDoPasseLivre" class="opcao" />
-                            <label for="opSemDiaDoPasseLivre" title="clique para saber o efeito dessa ação" tarifareducao="0.04" opcao="6">
-                                Retirar o dia do passe livre
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="7">
-                            <input type="checkbox" id="opSemPassagemIntegrada" class="opcao" />
-                            <label for="opSemPassagemIntegrada" title="clique para saber o efeito dessa ação" tarifareducao="0.17" opcao="7" class="opcao">
-                                Retirar a passagem integrada
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="8">
-                            <input type="checkbox" id="opEmpresaComLucroZero" class="opcao" />
-                            <label for="opEmpresaComLucroZero" title="clique para saber o efeito dessa ação" tarifareducao="0.28" opcao="8">
-                                Tirar lucro das empresas
-								<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="9">
-                            <input type="checkbox" id="opPasseLivre" class="opcao" />
-                            <label for="opPasseLivre" title="clique para saber o efeito dessa ação" tarifareducao="-0.19" opcao="9">
-                                Conceder Passe Livre para Estudantes
-								<span>aumenta a passagem em R${0}</span>
-                            </label>
-                        </li>
-                        <li class="proposta" opcaox="10">
-                            <input type="checkbox" id="opAumentarIPTU" class="opcao" />
-                            <label for="opAumentarIPTU" title="clique para saber o efeito dessa ação" tarifareducao="0.86" opcao="10">
-                                Aumentar o IPTU em 50%
-									<span>reduz a passagem em R${0}</span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="lowerblock">
-                    a passagem custaria
-					<p>
-                        <span class="text-rs">R$</span>
-                        <span id="tarifaFinal" class="text-price">2,85</span>
-                    </p>
-
-                    <div id="share">
-                        <a target="_blank" href="" id="linkShare">compartilhe a sua proposta >
-                        </a>
-                    </div>
-                    <div id="detalhe" class="linksOutros">
-                        <a target="_blank" href="/tarifapoa/detalhes.html">entenda
-                        </a>
-                        |
-						<a href="mailto:oi@ccdpoa.com.br" title="oi@ccdpoa.com.br">contato
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Tarifa-teste</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">tarifa-teste</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/gomex/tarifapoa/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/gomex/tarifapoa/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/gomex/tarifapoa" class="code">View Tarifa-teste on GitHub</a>
         </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h3>
+<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+
+<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<pre><code>$ cd your_repo_root/repo_name
+$ git fetch origin
+$ git checkout gh-pages
+</code></pre>
+
+<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+
+<h3>
+<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+
+<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+
+<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+
+<h3>
+<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+        </article>
+      </div>
     </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/gomex" class="avatar"><img src="https://secure.gravatar.com/avatar/ea93643fdef2c36998d0ab243834af55?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/gomex">gomex</a> maintains <a href="https://github.com/gomex/tarifapoa">Tarifa-teste</a></p>
 
-    <!-- 	<footer class="row">
-		<center>
-			<div id="share">
-				<a target="_blank" href="" id="linkShare">
-					compartilhe a sua proposta >
-				</a>                
-			</div>
-		</center>
-	</footer> -->
 
-    <a href="https://github.com/matehackers/tarifapoa"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/gomex/tarifapoa/tarball/master" class="tar">tar</a><a href="https://github.com/gomex/tarifapoa/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
 </body>
 </html>
